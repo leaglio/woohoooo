@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #fdfcfb;
+            color: #444;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #ff869a;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .button {
+            margin-top: 20px;
+            background-color: #ff869a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #ff6a82;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro Page -->
+    <div class="container" id="introPage">
+        <h1>Before we begin... 💭</h1>
+        <p>What is your favorite moment with Nabel?</p>
+        <input type="text" id="momentInput" placeholder="Type here..." />
+        <br>
+        <button class="button" onclick="goToPage1()">Submit</button>
+    </div>
+
+    <!-- Page 1: Birthday Message -->
+    <div class="container hidden" id="page1">
+        <h1>🎉 Happy (Belated) Birthday!</h1>
+        <p>Sorry for being super late with your gift. Time kept running and I... clearly wasn't catching up 😅<br><br>
+        I also feel bad that we barely have time to meet these days — even though you're one of the people I love most.<br><br>
+        And well... I actually bought you a couple t-shirt — for you and him...<br>
+        But yeah... life had other plans 🥲<br><br>
+        Let's just say the shirt is now a very exclusive limited edition — for you only!<br><br>
+        Even though I’m not always physically around, you’ve always had a spot in my life. Thank you for being patient, funny, and sincere.<br>
+        I wish this year brings you joy, peace, and many amazing things (including a catch-up session with me very soon).<br><br>
+        Love you always,<br>
+        <strong>Nabel</strong></p>
+        <button class="button" onclick="showSecondPage()">Click here for a surprise 🍽️</button>
+    </div>
+
+    <!-- Page 2: Invitation -->
+    <div class="container hidden" id="page2">
+        <h1>🍽️ Let’s eat until we drop!</h1>
+        <p>I know we haven’t had time to meet...<br><br>
+        So how about making up for it with an <strong>all-you-can-eat feast?</strong><br><br>
+        No excuses. No maybes.<br><br>
+        Just one question:</p>
+        <button class="button" onclick="showThirdPage()">YES 😌</button>
+    </div>
+
+    <!-- Page 3: Rules & Secret Code -->
+    <div class="container hidden" id="page3">
+        <h1>🎊 It’s a Date!</h1>
+        <p>Here’s what you need to know: <br><br>
+        🍴 I’m paying. No arguments.<br>
+        👗 Dress code: you gotta wear a dress — no escape!<br>
+        📍 Time & place? You need to <strong>message me first</strong> using this secret code:<br><br>
+        <strong>“love u” 💌</strong><br><br>
+        Once I get the code... the feast begins 🥢💖</p>
+    </div>
+
+    <script>
+        function goToPage1() {
+            var answer = document.getElementById("momentInput").value;
+            if (answer.trim() !== "") {
+                document.getElementById("introPage").classList.add("hidden");
+                document.getElementById("page1").classList.remove("hidden");
+            } else {
+                alert("Please write something first 💌");
+            }
+        }
+
+        function showSecondPage() {
+            document.getElementById("page1").classList.add("hidden");
+            document.getElementById("page2").classList.remove("hidden");
+        }
+
+        function showThirdPage() {
+            document.getElementById("page2").classList.add("hidden");
+            document.getElementById("page3").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
